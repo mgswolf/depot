@@ -1,0 +1,70 @@
+es:
+
+  thanks:   "Gracias por su pedido"
+
+  activerecord:
+    models:
+      order:        "pedido"
+      payment_type: "forma de pagamento"
+    attributes:
+      order:
+        address:   "Dirección"
+        name:      "Nombre"
+        pay_type:  "Forma de pago"
+        ship_date: "Data de envio"
+      payment_type:
+        name:      "Nombre"
+
+    errors:
+      messages:
+        inclusion: "no está incluido en la lista"
+        blank:     "no puede quedar en blanco"
+
+  errors:
+    template:
+      body:    "Hay problemas con los siguintes campos:"
+      header:
+        one:   "1 error ha impedido que este %{model} se guarde"
+        other: "%{count} errores han impedido que este %{model} se guarde"
+
+  layouts:
+    application:
+      title:     "Publicaciones de Pragmatic"
+      home:      "Inicio"
+      questions: "Preguntas"
+      news:      "Noticias"
+      contact:   "Contacto"
+
+#START:main
+  store:
+    index:
+      title_html: "Su Catálogo de Pragmatic"
+      add_html:   "Añadir al Carrito"
+
+#START:main
+  carts:
+    cart:
+      title:    "Carrito de la Compra"
+      empty:    "Vaciar Carrito"
+      checkout: "Comprar"
+
+#START:currency
+  number:
+    currency:
+      format:
+        unit:      "$US"
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format:    "%n&nbsp;%u"
+
+  orders:
+    new:
+      legend: "Por favor, introduzca sus datos"
+    form:
+      name:            "Nombre"
+      address_html:    "Dirección"
+      pay_type:        "Pagar con"
+      pay_prompt_html: "Selecione un método de pago"
+      ship_date:       "Data de lo envio"
+      submit:          "Realizar Pedido"                       

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pragprog Books Online Store</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="store">
+  <div id="banner">
+    <%= image_tag("logo.png") %>
+    <%= form_tag store_path, :class => 'locale' do %>
+      <%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), :onchange => 'this.form.submit()' %>
+      <%= submit_tag 'submit' %>
+      <%= javascript_tag "$('.locale input').hide()" %>
+    <% end %>
+    <%= @page_title || t('.title') %>
+  </div>
+  <div id="columns">
+    <div id="side">
+    <% if @cart %>
+      <div id="cart" %>
+        <%= render @cart %>
+      <% end %>
+    </div>
+      <%= link_to t('.home'), "/"%><br />
+      <%= link_to t('.questions'), "#" %><br />
+      <%= link_to t('.news'), "#" %><br />
+      <%= link_to t('.contact'), "#" %><br />
+
+    <% if session[:user_id] %>
+      <br />
+      <%= link_to 'Orders', orders_path %><br />
+      <%= link_to 'Products', products_path %><br />
+      <%= link_to 'Users', users_path %><br />
+      <br />
+      <%= button_to 'Logout', logout_path, :method => :delete %>
+    <% end %>
+    </div>
+    <div id="main">
+      <% if notice %>
+        <p id="notice"><%= notice %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>
