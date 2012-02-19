@@ -1,8 +1,8 @@
 set :user, 'zero'
-set :domain, 'depot'
+set :domain, 'depot.zero.com'
 
 set :application, "depot"
-set :repository,  "#{user}@{domain}:git/#{application}.git"
+set :repository,  "/usr/local/git_root/#{application}.git"
 set :deploy_to, "/home/#{user}/#{domain}"
 
 set :deploy_via, :remote_cache
@@ -11,13 +11,14 @@ set :branch, 'master'
 set :scm_verbose, true
 set :use_sudo, false
 
+
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 role :web, domain                          # Your HTTP server, Apache/etc
 role :app, domain                          # This may be the same as your `Web` server
 role :db,  domain, :primary => true # This is where Rails migrations will run
 
-
+load 'deploy/assets'
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 

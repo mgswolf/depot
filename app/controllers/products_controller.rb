@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_filter :authorize
   # GET /products
   # GET /products.json
   def index
@@ -7,6 +8,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
+      format.xml
     end
   end
 
